@@ -1,0 +1,6 @@
+lib/.precomp/
+.precomp
+*.tar.gz
+Tomtit-*
+.tom/.cache
+.tom/env/current

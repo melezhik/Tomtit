@@ -1,0 +1,5 @@
+begin:
+[1] # This is Sample Tomtit scenario
+[2] #
+[3] bash "echo hello world!!!";
+end:

@@ -1,0 +1,4 @@
+#!/bash
+
+tom foobar
+echo

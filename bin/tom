@@ -1,0 +1,128 @@
+#!perl6
+
+use Tomtit;
+
+sub MAIN (
+  $run?, 
+  Bool :$verbose    = False, 
+  Bool :$quiet      = False,
+  Bool :$q          = False, # alias for $quiet 
+  Bool :$completion = False, 
+  Bool :$clean      = False, 
+  Bool :$help       = False, 
+  Bool :$list       = False, 
+  Bool :$profile    = False, 
+  Bool :$remove     = False, 
+  Bool :$doc        = False, 
+  Bool :$cat        = False, 
+  Bool :$lines      = False, 
+  Bool :$last       = False, 
+  Bool :$edit       = False, 
+  Bool :$env-set    = False, 
+  Bool :$env-edit   = False, 
+  Bool :$env-list   = False, 
+  Bool :$env-cat    = False, 
+  Str  :$env 
+)
+
+{
+
+  my %config = init();
+  
+  my $quiet-mod     = $q || $quiet || %config<options><quiet>;
+  my $verbose-mod   = $verbose || %config<options><verbose>;
+
+  if ($quiet-mod && $verbose-mod) {
+
+    die "you can't use both verbose and quiet options" if ($quiet||$q) && $verbose;
+
+  }
+
+  if ($last) { # last scenario
+
+    scenario-last("{$*CWD}/.tom");
+
+  } elsif ($completion) { # install completion
+
+    completion-install();
+
+  } elsif ($cat && $run) { # cat scenario
+
+    scenario-cat("{$*CWD}/.tom", $run, %( lines => $lines ));
+
+  } elsif ($profile && !$run && !$list ) { # profile list
+
+    profile-list();
+
+  } elsif ($profile && $list && $run ) { # profile scenarios 
+
+    profile-list("{$*CWD}/.tom", $run);
+
+  } elsif ($profile && $run) { # install profile
+
+    profile-install("{$*CWD}/.tom", $run);
+
+  } elsif ($list) { # scenarios list
+
+    scenario-list("{$*CWD}/.tom")
+
+  } elsif ($help) { # help page
+
+    tomtit-help();
+
+  } elsif ($clean) { # clean cache
+
+    tomtit-clean("{$*CWD}/.tom");
+
+  } elsif ($run && $remove && !$profile && !$list ) { # remove scenario
+
+    scenario-remove("{$*CWD}/.tom",$run );
+
+  } elsif ($run && $doc && !$profile && !$list) { # scenario doc
+
+    scenario-doc("{$*CWD}/.tom",$run );
+
+  } elsif ($edit && $run) { # edir scenario
+
+    scenario-edit("{$*CWD}/.tom",$run );
+
+  } elsif ($env-edit && $run) { # edit env
+
+    environment-edit("{$*CWD}/.tom/env",$run );
+
+  } elsif ($env-cat && $run) { # cat env
+
+    environment-cat("{$*CWD}/.tom/env", $run, %( lines => $lines ));
+
+  } elsif ($env-list) { # env list
+
+    environment-list("{$*CWD}/.tom/env");
+
+  } elsif ($env-set && $run) { # activate env
+
+    environment-set("{$*CWD}/.tom/env", $run);
+
+  } elsif ($env-set && !$run) { # print activated env
+
+    environment-show("{$*CWD}/.tom/env");
+
+  } elsif ($run) { # run scenario
+
+    scenario-run(
+      "{$*CWD}/.tom",$run, 
+      %( 
+        quiet     => $quiet-mod, 
+        verbose   => $verbose-mod, 
+        env       => $env,
+      )
+    );
+
+  } else {
+
+    scenario-list("{$*CWD}/.tom");
+
+  }
+
+}
+
+

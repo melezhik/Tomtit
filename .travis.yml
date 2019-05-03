@@ -1,0 +1,19 @@
+language: perl
+
+env:
+  - PATH=/usr/local/bin:/opt/rakudo-pkg/bin/:/home/travis/.perl6/bin:$PATH
+
+before_install:
+  - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 379CE192D401AB61
+  - echo "deb https://dl.bintray.com/nxadm/rakudo-pkg-debs `lsb_release -cs` main" | sudo tee -a /etc/apt/sources.list.d/rakudo-pkg.list 
+  - sudo apt-get update && sudo apt-get install rakudo-pkg
+
+
+install:
+    - cpanm --notest Sparrow
+    - sparrow --version
+    - zef install --/test .
+
+script:
+  - tom test
+
