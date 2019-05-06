@@ -3,6 +3,7 @@ Revision history for Tomtit
 {{$NEXT}}
 
     - Use Sparrow6
+    - Add git@git-publish, git@update-branch-list helpers
     - Add yaml@lint helper
     - Update git@push helper ( confirm => "no" )
     - Add ado@az-sql-server-check-fw helper

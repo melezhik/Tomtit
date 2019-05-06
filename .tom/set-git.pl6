@@ -1,6 +1,8 @@
+#!perl6
+
 task-run "set git", "git-base", %(
-  email => 'melezhik@gmail.com',
-  name  => 'Alexey Melezhik',
+  email => 'user@email.com',
+  name  => 'User Name',
   config_scope => 'local',
   set_credential_cache => 'on'
 );

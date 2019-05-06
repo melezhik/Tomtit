@@ -36,6 +36,8 @@
     "profiles/git/pull.pl6",
     "profiles/git/status.pl6",
     "profiles/git/git-summary.pl6",
+    "profiles/git/git-publish.pl6",
+    "profiles/git/update-branch-list.pl6",
     "profiles/ado/build.pl6",
     "profiles/ado/list.pl6",
     "profiles/ado/az-account-set.pl6",
