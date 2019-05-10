@@ -1,9 +1,5 @@
 language: perl
 
-env:
-  - PATH=/usr/local/bin:/opt/rakudo-pkg/bin/:/home/travis/.perl6/bin:$PATH
-  - SP6_REPO=file:///tmp/repo
-
 before_install:
   - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 379CE192D401AB61
   - echo "deb https://dl.bintray.com/nxadm/rakudo-pkg-debs `lsb_release -cs` main" | sudo tee -a /etc/apt/sources.list.d/rakudo-pkg.list 
@@ -11,6 +7,8 @@ before_install:
 
 
 install:
+    - export PATH=/usr/local/bin:/opt/rakudo-pkg/bin/:/home/travis/.perl6/bin:$PATH
+    - export SP6_REPO=file:///tmp/repo
     - git clone https://github.com/melezhik/sparrow-plugins && s6 --repo-init /tmp/repo
     - cd sparrow-plugins && git checkout master && git pull origin master
     - find -maxdepth 2 -mindepth 2 -name sparrow.json -execdir s6 --upload \;
