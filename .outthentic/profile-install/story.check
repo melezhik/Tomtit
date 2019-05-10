@@ -1,4 +1,0 @@
-begin:
-install ruby@rvm
-scenario rvm removed
-end:

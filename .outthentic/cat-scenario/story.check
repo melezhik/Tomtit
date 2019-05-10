@@ -1,5 +1,0 @@
-begin:
-regexp: \S This is Sample Tomtit scenario
-regexp: \S
-bash "echo hello world!!!";
-end:

@@ -1,0 +1,5 @@
+begin:
+  regexp: \S \s+ "This is Sample Tomtit scenario"
+  regexp: \S
+  bash "echo hello world!!!";
+end:

@@ -1,6 +1,6 @@
 # Tomtit
 
-Tomtit - Perl6 task runner with dozens of [plugins](https://github.com/melezhik/sparrowdo).
+Tomtit - Perl6 task runner.
 
 ![tomtit logo](https://raw.githubusercontent.com/melezhik/tomtit/master/tt-base.png)
 
@@ -102,14 +102,6 @@ You can do anything, allowable through [Sparrowdo API](https://github.com/melezh
 And so on.
 
 As result you minimize code to execute many typical tasks.
-
-
-# Running with sudo
-
-Some scripts `sudo` for task execution, to switch tomtit in superuser mode just add `--sudo` flag when
-running scenario:
-
-    tomtit --sudo $scenario
 
 
 # Profiles

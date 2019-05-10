@@ -10,9 +10,8 @@ before_install:
 
 
 install:
-    - cpanm --notest Sparrow
-    - sparrow --version
-    - zef install --/test .
+    - zef install --/test https://github.com/melezhik/Sparrow6.git
+    - zef install --/test  .
 
 script:
   - tom test

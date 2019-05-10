@@ -63,7 +63,6 @@ sub tomtit-help () is export  {
     tom --env-set $env
 
   actions:
-    tom --bootstrap         # bootstrap system
     tom --list              # list available scenarios
     tom --profile           # list available profiles
     tom --profile $profile  # list profile scenarios

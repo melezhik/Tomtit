@@ -1,4 +1,0 @@
-#!/bash
-
-tom foobar
-echo
