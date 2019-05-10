@@ -1,8 +1,8 @@
 # Tomtit
 
-Tomtit - Perl6 task runner.
+Tomtit - Super flexible Perl6 Task Runner.
 
-![tomtit logo](https://raw.githubusercontent.com/melezhik/tomtit/master/tt-base.png)
+![Tomtit logo](https://raw.githubusercontent.com/melezhik/tomtit/master/tt-base.png)
 
 # Build Status
 
@@ -10,7 +10,7 @@ Tomtit - Perl6 task runner.
 
 # INSTALL
 
-    zef install Tomtit
+    zef install tomtit
 
 # USAGE
 
@@ -36,7 +36,7 @@ Show the last executed scenario:
 
     tom --last
 
-Clean tomtit cache:
+Clean Tomtit cache:
 
     tom --clean
 
@@ -53,14 +53,14 @@ Example:
 
 # Defining scenarios
 
-Tomtit scenarios are just Sparrowdo scenarios you create in `.tom` directory, which is base Tomtit directory:
+Tomtit scenarios are just Sparrow6 scenarios you create in `.tom` directory, which is base Tomtit directory:
   
     mkdir .tom/
     nano .tom/build.pl6
     nano .tom/test.pl6
     nano .tom/install.pl6
 
-You want to ignore tomtit cache which commit files to SCM:
+You want to ignore Tomtit cache which commit files to SCM:
 
     git add .tom/
     echo .tom/.cache >> .gitignore
@@ -68,12 +68,14 @@ You want to ignore tomtit cache which commit files to SCM:
 
 # Scenario example
 
-You can do anything, allowable through [Sparrowdo API](https://github.com/melezhik/sparrowdo), like:
+You can do anything, allowable through [Sparrow6 DSL](https://github.com/melezhik/Sparrow6/blob/master/documentation/dsl.md), like:
 
     cat .tom/example.pl6
 
-    # you can Sparrowdo shortcuts 
-    # to create files and directories
+    # you can use Sparrow6 DSL functions
+    # to do many system tasks, like:
+
+    # create files and directories
 
     file 'passwords.txt', %( content => "super secret" );
 
@@ -106,13 +108,13 @@ As result you minimize code to execute many typical tasks.
 
 # Profiles
 
-Profiles are predefined sets of tomtit scenarios.
+Profiles are predefined sets of Tomtit scenarios.
 To start using scenarios from profile you say:
 
     tom --profile $profile
 
 Once the command is executed the profile scenarios get installed to the
-base tomtit directory.
+base Tomtit directory.
 
 To list available profiles say this:
 
@@ -212,24 +214,23 @@ Use `--lines` flag to print out with line numbers.
 
 # Environments
 
-You can define tomtit environments/configurations as [Sparrowdo configuration 
-files](https://github.com/melezhik/sparrowdo#scenarios-configuration).
+* Tomtit environments are configuration files, written on Perl6 and technically speaking are plain Perl6 Hashes
 
-Create configuration file at `.tom/conf` directory:
+* Environment configuration files should be placed at `.tom/conf` directory:
 
 .tom/env/config.pl6:
 
 
     {
-        name => "tomtit",
+        name => "Tomtit",
         who-are-you => "smart bird"
 
     }
 
-Run tomtit.
+Run Tomtit.
 
 It will pick the `.tom/env/config.pl6` and read configuration from it, variables will be accessible as `config` Hash,
-inside tomtit scenarios:
+inside Tomtit scenarios:
 
 
     my $name = config<name>;
@@ -266,9 +267,9 @@ You print out the list of all environments by using `--env-list` parameters:
 
 # Tomtit cli configuration
 
-You can set tomtit configuration in `~/tom.yaml` file:
+You can set Tomtit configuration in `~/tom.yaml` file:
 
-    # list of portable tomtit profiles,
+    # list of portable Tomtit profiles,
     # will be available through Bash completion
 
     profiles:
@@ -277,7 +278,7 @@ You can set tomtit configuration in `~/tom.yaml` file:
       - Tomtit-Bar
       - Tomtit-Bar-Baz
 
-    # you can also setup some tomtit cli options here
+    # you can also setup some Tomtit cli options here
 
     options:
 
