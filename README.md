@@ -1,6 +1,6 @@
 # Tomtit
 
-Tomtit - Super flexible Perl6 Task Runner.
+Tomtit - Perl6 Task Runner.
 
 ![Tomtit logo](https://raw.githubusercontent.com/melezhik/tomtit/master/tt-base.png)
 
