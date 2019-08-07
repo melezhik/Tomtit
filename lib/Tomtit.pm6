@@ -292,9 +292,9 @@ sub environment-cat ($dir,$env,%args?) is export {
 
 }
 
-# this is one is implemented, but not presented in public API, as we
-# have issues with compiling Sparrowdo scenarios
-  
+# scenario-doc function is implemented, but not presented in public API, 
+# as there are some issues with compiling Sparrowdo scenarios
+
 sub scenario-doc ($dir,$scenario) is export {
 
   die "scenario $scenario not found" unless "$dir/$scenario.pl6".IO ~~ :e;
@@ -305,7 +305,6 @@ sub scenario-doc ($dir,$scenario) is export {
 
 sub scenario-list ($dir) is export {
 
-    say "[scenarios list]";
     my @list = Array.new;
 
     for dir($dir) -> $f {
@@ -316,6 +315,16 @@ sub scenario-list ($dir) is export {
       @list.push($scenario-name);
 
     }
+
+    return @list.sort;
+
+}
+
+sub scenario-list-print ($dir) is export {
+
+    say "[scenarios list]";
+
+    my @list = scenario-list($dir);
 
     say join "\n", @list.sort;
 

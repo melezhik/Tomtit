@@ -1,3 +1,3 @@
-task-run "list builds", "vsts-build", %( 
+task-run "list ado builds", "vsts-build", %( 
   action => "list"
 )

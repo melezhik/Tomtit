@@ -1,6 +1,6 @@
 #!perl6
 
-task-run "set az account", "azure-account-set", %(
+task-run "Set Azure Account", "azure-account-set", %(
   subscription => "change me"
 );
 

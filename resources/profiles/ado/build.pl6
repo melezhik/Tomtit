@@ -1,3 +1,3 @@
-task-run "run build", "vsts-build", %( 
+task-run "run ado build", "vsts-build", %( 
   definition => "changeme"
 );
