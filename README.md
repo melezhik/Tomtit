@@ -2,8 +2,6 @@
 
 Tomtit - Perl6 Task Runner.
 
-![Tomtit logo](https://raw.githubusercontent.com/melezhik/tomtit/master/tt-base.png)
-
 # Build Status
 
 [![Build Status](https://travis-ci.org/melezhik/tomtit.svg?branch=master)](https://travis-ci.org/melezhik/tomtit)
