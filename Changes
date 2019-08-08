@@ -2,6 +2,8 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.1.1  2019-08-08T15:15:54Z
+
     - Changes required by Tomty
     - Fix: Travis tests failure
 
