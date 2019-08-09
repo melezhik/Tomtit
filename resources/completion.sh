@@ -1,6 +1,6 @@
 #/usr/bin/env bash
 
-tomtit_completions()
+_tomtit_completions()
 {
   
   cur_word="${COMP_WORDS[COMP_CWORD]:-UNKNOWN}"
@@ -42,4 +42,4 @@ tomtit_completions()
 
 }
 
-complete -F tomtit_completions tom
+complete -F _tomtit_completions tom
