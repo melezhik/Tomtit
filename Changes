@@ -2,6 +2,9 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+    - Improvement: choose safe/unique name for bash completion function
+      to avoid possible conflicts 
+
 0.1.1  2019-08-08T15:15:54Z
 
     - Changes required by Tomty
