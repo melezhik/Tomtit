@@ -2,6 +2,8 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.1.2  2019-08-10T18:13:18-05:00
+
     - Improvement: choose safe/unique name for bash completion function
       to avoid possible conflicts 
 
