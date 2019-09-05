@@ -1,0 +1,10 @@
+21:58:50 09/05/2019 [repository] index updated from file:///home/scheck/repo/api/v1/index
+21:58:50 09/05/2019 [test/last] install hello@world ...
+21:58:51 09/05/2019 [test/last] load configuration from /home/scheck/projects/Tomtit/.tom/env/config.pl6
+21:58:53 09/05/2019 [test/last] 21:58:51 09/05/2019 [repository] index updated from file:///home/scheck/repo/api/v1/index
+21:58:53 09/05/2019 [test/last] 21:58:53 09/05/2019 [bash: echo hello world!!!] hello world!!!
+21:58:53 09/05/2019 [test/last] LAST
+21:58:54 09/05/2019 [test/last] world
+21:58:54 09/05/2019 [test/last] LAST
+[task check] stdout match <hello world!!!> True
+[task check] stdout match (r) <world> True

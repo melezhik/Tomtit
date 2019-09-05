@@ -174,6 +174,23 @@ sub scenario-edit ($dir,$scenario) is export {
 
 }
 
+sub current-env ($dir) {
+
+    my $current = "default";
+
+    if "$dir/current".IO ~~ :e  && "$dir/current".IO.resolve.IO.basename {
+
+      if "$dir/current".IO.resolve.IO.basename ~~ /config\.(.*)\.pl6/ {
+        $current = "$0"
+      }
+
+    }
+
+  return $current;
+
+}
+
+
 sub environment-edit ($dir,$env) is export {
 
     die "you should set EDITOR ENV to run editor" unless  %*ENV<EDITOR>;
@@ -195,15 +212,7 @@ sub environment-list ($dir) is export {
 
     my @list = Array.new;
 
-    my $current = "default";
-
-    if "$dir/current".IO ~~ :e  && "$dir/current".IO.resolve.IO.basename {
-
-      if "$dir/current".IO.resolve.IO.basename ~~ /config\.(.*)\.pl6/ {
-        $current = "$0"
-      }
-
-    }
+    my $current = current-env($dir);
 
     for dir($dir) -> $f {
 
@@ -322,7 +331,9 @@ sub scenario-list ($dir) is export {
 
 sub scenario-list-print ($dir) is export {
 
-    say "[scenarios list]";
+    my $current-env = current-env("$dir/env");
+
+    say "[$current-env@scenarios list]";
 
     my @list = scenario-list($dir);
 

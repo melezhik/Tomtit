@@ -1,0 +1,6 @@
+21:58:57 09/05/2019 [repository] index updated from file:///home/scheck/repo/api/v1/index
+21:58:58 09/05/2019 [test/profile-install] scenario rvm not found
+21:58:58 09/05/2019 [test/profile-install] install ruby@rvm ...
+21:58:59 09/05/2019 [test/profile-install] scenario rvm removed
+[task check] stdout match (s) <install ruby@rvm> True
+[task check] stdout match (s) <scenario rvm removed> True

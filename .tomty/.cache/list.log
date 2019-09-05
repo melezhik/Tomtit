@@ -1,0 +1,18 @@
+21:58:54 09/05/2019 [repository] index updated from file:///home/scheck/repo/api/v1/index
+21:58:55 09/05/2019 [test/list] [default@scenarios list]
+21:58:55 09/05/2019 [test/list] changes
+21:58:55 09/05/2019 [test/list] commit
+21:58:55 09/05/2019 [test/list] git-publish
+21:58:55 09/05/2019 [test/list] git-summary
+21:58:55 09/05/2019 [test/list] install
+21:58:55 09/05/2019 [test/list] pull
+21:58:55 09/05/2019 [test/list] push
+21:58:55 09/05/2019 [test/list] release
+21:58:55 09/05/2019 [test/list] set-git
+21:58:55 09/05/2019 [test/list] set-pause
+21:58:55 09/05/2019 [test/list] status
+21:58:55 09/05/2019 [test/list] test
+21:58:55 09/05/2019 [test/list] update-branch-list
+21:58:55 09/05/2019 [test/list] world
+[task check] stdout match <install> True
+[task check] stdout match <test> True

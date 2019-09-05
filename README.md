@@ -294,6 +294,14 @@ You can install Bash completion for tom cli.
     tom --completion
     source  ~/.tom_completion.sh
 
+# Development
+
+
+    git clone https://github.com/melezhik/Tomtit.git
+    zef install --/test .
+    zef install Tomty
+    tomty --all # run tests
+
 
 # Author
 

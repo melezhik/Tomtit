@@ -1,1 +1,16 @@
-[scenarios list]
+scenarios list
+changes
+commit
+git-publish
+git-summary
+install
+pull
+push
+release
+set-git
+set-pause
+status
+test
+update-branch-list
+world
+

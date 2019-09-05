@@ -1,0 +1,16 @@
+21:59:00 09/05/2019 [repository] index updated from file:///home/scheck/repo/api/v1/index
+21:59:00 09/05/2019 [test/profile-list] [profiles]
+21:59:00 09/05/2019 [test/profile-list] ado
+21:59:00 09/05/2019 [test/profile-list] git
+21:59:00 09/05/2019 [test/profile-list] hello
+21:59:00 09/05/2019 [test/profile-list] perl
+21:59:00 09/05/2019 [test/profile-list] perl6
+21:59:00 09/05/2019 [test/profile-list] ruby
+21:59:00 09/05/2019 [test/profile-list] yaml
+[task check] stdout match (s) <profiles> True
+[task check] stdout match (s) <ado> True
+[task check] stdout match (s) <git> True
+[task check] stdout match (s) <hello> True
+[task check] stdout match (s) <perl> True
+[task check] stdout match (s) <perl6> True
+[task check] stdout match (s) <ruby> True

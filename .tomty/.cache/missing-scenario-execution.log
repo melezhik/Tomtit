@@ -1,0 +1,10 @@
+21:58:56 09/05/2019 [repository] index updated from file:///home/scheck/repo/api/v1/index
+21:58:57 09/05/2019 [test/missing-scenario-execution] scenario foobar not found
+21:58:57 09/05/2019 [test/missing-scenario-execution]   in sub scenario-run at /home/scheck/.perl6/sources/B1CE383039AF5A030C96156DB12C986D60C5C472 (Tomtit) line 104
+21:58:57 09/05/2019 [test/missing-scenario-execution]   in sub MAIN at /home/scheck/.perl6/resources/0B0E4A5E378BF88CE7F66A5AE8BB844E9B38E9CB line 111
+21:58:57 09/05/2019 [test/missing-scenario-execution]   in block <unit> at /home/scheck/.perl6/resources/0B0E4A5E378BF88CE7F66A5AE8BB844E9B38E9CB line 3
+21:58:57 09/05/2019 [test/missing-scenario-execution]   in sub MAIN at /home/scheck/.perl6/bin/tom line 3
+21:58:57 09/05/2019 [test/missing-scenario-execution]   in block <unit> at /home/scheck/.perl6/bin/tom line 1
+21:58:57 09/05/2019 [test/missing-scenario-execution] 
+21:58:57 09/05/2019 [test/missing-scenario-execution] 
+[task check] stdout match <scenario foobar not found> True
