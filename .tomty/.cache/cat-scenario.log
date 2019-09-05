@@ -1,8 +1,0 @@
-21:58:45 09/05/2019 [repository] index updated from file:///home/scheck/repo/api/v1/index
-21:58:46 09/05/2019 [test/cat-scenario] [scenario world]
-21:58:46 09/05/2019 [test/cat-scenario] # This is Sample Tomtit scenario
-21:58:46 09/05/2019 [test/cat-scenario] #
-21:58:46 09/05/2019 [test/cat-scenario] bash "echo hello world!!!";
-[task check] stdout match (s) <\S \s+ "This is Sample Tomtit scenario"> True
-[task check] stdout match (s) <\S> True
-[task check] stdout match (s) <bash "echo hello world!!!";> True
