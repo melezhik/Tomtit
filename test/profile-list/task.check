@@ -1,9 +1,11 @@
 begin:
   profiles
   ado
+  azure
   git
   hello
   perl
   perl6
   ruby
+  yaml
 end:
