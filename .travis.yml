@@ -21,5 +21,6 @@ install:
     - cd ../ 
 
 script:
+  - tom --init  
   - tom test
   - tomty --all  --show-failed
