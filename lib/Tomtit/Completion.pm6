@@ -146,7 +146,7 @@ sub complete () is export {
 
 sub options-list {
 
-  my $list =  "--verbose --quiet -q --completion --clean --help --list --profile --remove --doc --cat --lines --last --edit --env-cat --env-set --env-edit --env-list";
+  my $list =  "--verbose --quiet -q --completion --clean --help --init --list --profile --remove --doc --cat --lines --last --edit --env-cat --env-set --env-edit --env-list";
 
     if %*ENV<TOMTIT_COMPLETE_DEBUG> {
 

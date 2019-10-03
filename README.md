@@ -14,6 +14,10 @@ Tomtit - Perl6 Task Runner.
 
     tom $action|$options $thing
 
+Initialize tomtit:
+
+	tom --init
+
 Run scenario:
 
     tom $scenario

@@ -24,11 +24,25 @@ my %profiles is Map = (
 );
 
 # tom cli initializer
-  
+
+our sub check-if-init () is export {
+
+  if ! (".tom/.cache".IO ~~ :d) or ! (".tom/env".IO ~~ :d) {
+	say "tomtit is not initialized, run tom --init";
+	exit(1);
+  }
+
+}
+
 our sub init () is export {
 
   mkdir ".tom/.cache";
   mkdir ".tom/env";
+
+}
+  
+our sub load-conf () is export {
+
   my %conf = Hash.new;
 
   if $*DISTRO.is-win {
@@ -70,6 +84,7 @@ sub tomtit-help () is export  {
     tom --env-set $env
 
   actions:
+	tom --init				# initialize tomtit
     tom --list              # list available scenarios
     tom --profile           # list available profiles
     tom --profile $profile  # list profile scenarios
