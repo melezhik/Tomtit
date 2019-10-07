@@ -10,7 +10,7 @@ unit module Tomtit::Completion;
 
 require Tomtit;
 
-my %config = ::("Tomtit::" ~ '&init')();
+my %config = ::("Tomtit::" ~ '&init')("{$*CWD}/.tom");
 
 sub complete () is export {
 

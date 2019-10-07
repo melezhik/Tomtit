@@ -25,19 +25,18 @@ my %profiles is Map = (
 
 # tom cli initializer
 
-our sub check-if-init () is export {
+our sub check-if-init ( $dir ) is export {
 
-  if ! (".tom/.cache".IO ~~ :d) or ! (".tom/env".IO ~~ :d) {
+  if ! ($dir.IO ~~ :d) {
 	say "tomtit is not initialized, run tom --init";
 	exit(1);
   }
 
 }
 
-our sub init () is export {
+our sub init ($dir) is export {
 
-  mkdir ".tom/.cache";
-  mkdir ".tom/env";
+  mkdir $dir;
 
 }
   
@@ -124,6 +123,8 @@ sub scenario-last ($dir) is export {
 sub scenario-run ($dir,$scenario,%args?) is export {
 
   die "scenario $scenario not found" unless "$dir/$scenario.pl6".IO ~~ :e;
+
+  mkdir "$dir/.cache";
 
   my $fh = open "$dir/.cache/history", :a;
   $fh.print($scenario,"\n");
@@ -215,6 +216,8 @@ sub environment-edit ($dir,$env) is export {
 
     die "you should set EDITOR ENV to run editor" unless  %*ENV<EDITOR>;
 
+    mkdir $dir;
+
     my $conf-file = ( $env eq 'default' ) ?? "$dir/config.pl6" !! "$dir/config.{$env}.pl6";
 
     unless $conf-file.IO ~~ :e {
@@ -229,6 +232,8 @@ sub environment-edit ($dir,$env) is export {
 sub environment-list ($dir) is export {
 
     say "[environments list]";
+
+    mkdir $dir;
 
     my @list = Array.new;
 
@@ -266,6 +271,8 @@ sub environment-set ($dir,$env) is export {
   # uses symlinks
 
   unlink "$dir/current" if "$dir/current".IO ~~ :e;
+
+  mkdir $dir;
 
   spurt "$dir/current", $env;
 

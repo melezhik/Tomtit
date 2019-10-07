@@ -30,9 +30,9 @@ sub MAIN (
 
  	
   if $init {
-	init();
+	init("{$*CWD}/.tom");
   } else {
-    check-if-init();
+    check-if-init("{$*CWD}/.tom");
   }	
 
   my %config = load-conf();
