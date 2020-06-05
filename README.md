@@ -1,6 +1,6 @@
 # Tomtit
 
-Tomtit - Perl6 Task Runner.
+Tomtit - Raku Task Runner.
 
 # Build Status
 
