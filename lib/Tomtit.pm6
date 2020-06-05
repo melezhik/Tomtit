@@ -2,7 +2,7 @@
 
 use v6;
 
-unit module Tomtit:ver<0.1.6>;
+unit module Tomtit:ver<0.1.7>;
 
 use File::Directory::Tree;
 

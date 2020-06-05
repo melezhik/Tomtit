@@ -2,6 +2,8 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.1.7  2020-06-05T19:08:49Z
+
     - Switch travis build to rakudist.raku.org
 
 0.1.6  2019-10-17T14:44:19-05:00
