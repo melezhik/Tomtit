@@ -8,7 +8,7 @@
     "File::Directory::Tree",
     "YAMLish"
   ],
-  "description" : "Tomtit - Perl6 Task Runner",
+  "description" : "Tomtit - Raku Task Runner",
   "license" : "Artistic-2.0",
   "name" : "Tomtit",
   "perl" : "6.*",

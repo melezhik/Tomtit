@@ -1,26 +1,4 @@
-language: perl
-
-env:
-  global:
-    - PATH=/usr/local/bin:/opt/rakudo-pkg/bin/:/home/travis/.perl6/bin:$PATH
-    - SP6_REPO=file:///tmp/repo
-    #- SP6_REPO=http://repo.southcentralus.cloudapp.azure.com
-
-before_install:
-  - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 379CE192D401AB61
-  - echo "deb https://dl.bintray.com/nxadm/rakudo-pkg-debs `lsb_release -cs` main" | sudo tee -a /etc/apt/sources.list.d/rakudo-pkg.list 
-  - sudo apt-get update && sudo apt-get install rakudo-pkg
-
-
-install:
-    - zef install --/test  .
-    - zef install --/test https://github.com/melezhik/Tomty.git
-    - git clone https://github.com/melezhik/sparrow-plugins && s6 --repo-init /tmp/repo
-    - cd sparrow-plugins && git checkout master && git pull origin master
-    - find -maxdepth 2 -mindepth 2 -name sparrow.json -execdir s6 --upload \;
-    - cd ../ 
+language: minimal
 
 script:
-  - tom --init  
-  - tom test
-  - tomty --all  --show-failed
+  - curl -d thing=https://github.com/melezhik/Tomtit http://rakudist.raku.org/ci -s | bash
