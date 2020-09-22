@@ -33,6 +33,7 @@
     "profiles/git/set-git.pl6",
     "profiles/git/commit.pl6",
     "profiles/git/push.pl6",
+    "profiles/git/git-branch-delete.pl6",
     "profiles/git/pull.pl6",
     "profiles/git/status.pl6",
     "profiles/git/git-summary.pl6",
