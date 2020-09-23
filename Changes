@@ -2,8 +2,11 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.1.8  2020-09-23T04:27:45Z
+
     - Calculate path for completion script based on HOME env variable
     - Add `git-branch-delete` script to `git` profile
+    - per6/release uses Sparrow plugin now
 
 0.1.7  2020-06-05T19:08:49Z
 
