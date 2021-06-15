@@ -290,6 +290,7 @@ You can set Tomtit configuration in `~/tom.yaml` file:
 
         --verbose   # run scenario in verbose mode
         --quiet,-q  # run scenario in less verbose mode
+        --color     # color output
 
 # Bash completion
 

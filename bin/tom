@@ -7,6 +7,7 @@ sub MAIN (
   Bool :$verbose    = False, 
   Bool :$quiet      = False,
   Bool :$q          = False, # alias for $quiet 
+  Bool :$color      = False, 
   Bool :$completion = False, 
   Bool :$clean      = False, 
   Bool :$help       = False, 
@@ -28,9 +29,10 @@ sub MAIN (
 
 {
 
- 	
+ 	%*ENV<SP6_FORMAT_COLOR> = $color;
+
   if $init {
-	init("{$*CWD}/.tom");
+	  init("{$*CWD}/.tom");
   } else {
     check-if-init("{$*CWD}/.tom");
   }	
@@ -122,6 +124,7 @@ sub MAIN (
         quiet     => $quiet-mod, 
         verbose   => $verbose-mod, 
         env       => $env,
+        color     => $color,
       )
     );
 
