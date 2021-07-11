@@ -40,6 +40,9 @@ sub MAIN (
   my %config = load-conf();
   
   my $quiet-mod     = $q || $quiet || %config<options><quiet>;
+
+ 	%*ENV<SP6_FORMAT_TERSE> = 1 if $quiet-mod;
+
   my $verbose-mod   = $verbose || %config<options><verbose>;
 
   if ($quiet-mod && $verbose-mod) {
