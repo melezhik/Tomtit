@@ -2,6 +2,10 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+    - Add gitlab profile
+    - Perl6 -> Raku replacement in profiles/
+    - raku/install now uses fez
+
 0.1.10  2021-07-11T01:08:00Z
 
     - Support for color output
