@@ -2,6 +2,8 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.1.11  2021-08-17T09:11:00Z
+
     - Add gitlab profile
     - Perl6 -> Raku replacement in profiles/
     - raku/install now uses fez
