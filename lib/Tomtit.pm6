@@ -14,8 +14,9 @@ use Sparrow6::DSL;
 
 my %profiles is Map = (
   'perl' => ( 'set-pause', 'make-dist', 'install', 'test', 'changes', 'release' ),
-  'perl6' =>  ( 'set-pause', 'test', 'install', 'changes', 'release' ),
+  'raku' =>  ( 'set-pause', 'test', 'install', 'changes', 'release' ),
   'git' => ( 'set-git', 'commit', 'push', 'git-branch-delete', 'pull', 'status', 'git-summary', 'git-publish', 'update-branch-list' ),
+  'gitlab' => ( 'gitlab-run-pipeline' ), 
   'ruby' => ( 'rvm' ),
   'azure' => ( 'az-resources', 'az-account-set' , 'az-kv-show', 'az-sql-server-check-fw' ),
   'ado' => ( 'ado-pipeline-build-list', 'ado-pipeline-build-run' ),
