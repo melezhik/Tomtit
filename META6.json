@@ -29,7 +29,7 @@
     "profiles/perl/release.pl6",
     "profiles/perl/test.pl6",
     "profiles/gitlab/gitlab-run-pipeline.pl6",
-    "profiles/raku/install.pl6",
+    "profiles/ruby/rvm.pl6",
     "profiles/git/set-git.pl6",
     "profiles/git/commit.pl6",
     "profiles/git/push.pl6",
