@@ -5,7 +5,7 @@
   ],
   "build-depends" : [ ],
   "depends" : [
-    "Sparrow6",
+    "Sparrow6:ver<0.0.35+>",
     "File::Directory::Tree",
     "YAMLish"
   ],
@@ -39,6 +39,7 @@
     "profiles/git/git-summary.pl6",
     "profiles/git/git-publish.pl6",
     "profiles/git/update-branch-list.pl6",
+    "profiles/git/github-url-https-to-ssh.pl6",
     "profiles/ado/ado-pipeline-build-list.pl6",
     "profiles/ado/ado-pipeline-build-run.pl6",
     "profiles/azure/az-account-set.pl6",
@@ -57,5 +58,5 @@
   },
   "tags" : [ ],
   "test-depends" : [ ],
-  "version" : "0.1.11"
+  "version" : "0.1.12"
 }

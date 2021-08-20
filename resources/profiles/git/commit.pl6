@@ -1,4 +1,4 @@
-#!perl6
+#!raku
 
 my $msg = prompt("message: ");
 

@@ -1,4 +1,4 @@
-#!perl6
+#!raku
 
 shell("ls -1 *.gz");
 

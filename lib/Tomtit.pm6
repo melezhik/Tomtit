@@ -2,7 +2,7 @@
 
 use v6;
 
-unit module Tomtit:ver<0.1.11>;
+unit module Tomtit:ver<0.1.12>;
 
 use File::Directory::Tree;
 
@@ -15,7 +15,7 @@ use Sparrow6::DSL;
 my %profiles is Map = (
   'perl' => ( 'set-pause', 'make-dist', 'install', 'test', 'changes', 'release' ),
   'raku' =>  ( 'set-pause', 'test', 'install', 'changes', 'release' ),
-  'git' => ( 'set-git', 'commit', 'push', 'git-branch-delete', 'pull', 'status', 'git-summary', 'git-publish', 'update-branch-list' ),
+  'git' => ( 'set-git', 'commit', 'push', 'git-branch-delete', 'pull', 'status', 'git-summary', 'git-publish', 'update-branch-list', 'github-url-https-to-ssh' ),
   'gitlab' => ( 'gitlab-run-pipeline' ), 
   'ruby' => ( 'rvm' ),
   'azure' => ( 'az-resources', 'az-account-set' , 'az-kv-show', 'az-sql-server-check-fw' ),
@@ -427,7 +427,7 @@ sub profile-install ($dir, $profile is copy, %args?) is export {
 
   my $is-portable = False;
 
-  if $profile ~~ /^ 'Tomtit-Profile-' \w/ { # Portable profile, installed as Perl6 module
+  if $profile ~~ /^ 'Tomtit-Profile-' \w/ { # Portable profile, installed as Raku module
 
     $is-portable = True;
 
@@ -447,7 +447,7 @@ sub profile-install ($dir, $profile is copy, %args?) is export {
 
   if $is-portable {
 
-    say "load prortable profile $profile as Perl6 module ...";
+    say "load prortable profile $profile as Raku module ...";
 
     require ::($profile);
 

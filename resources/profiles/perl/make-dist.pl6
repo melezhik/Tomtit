@@ -1,4 +1,4 @@
-#!perl6
+#!raku
 
 bash "perl Makefile.PL";
 bash "make clean";

@@ -1,4 +1,4 @@
-#!perl6
+#!raku
 
 task-run "Keyvault Secrets", "azure-kv-show", %(
   kv      => 'changme', # key vault name

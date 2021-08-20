@@ -1,4 +1,4 @@
-#!perl6
+#!raku
 
 my $password = prompt("enter your CPAN password: ");
 

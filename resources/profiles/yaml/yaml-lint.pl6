@@ -1,4 +1,4 @@
-#!perl6
+#!raku
 
 task-run "lint modified files", "yaml-lint";
 

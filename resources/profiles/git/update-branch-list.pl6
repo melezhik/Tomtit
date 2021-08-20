@@ -1,4 +1,4 @@
-#!perl6
+#!raku
 
 bash "git remote update origin --prune";
 

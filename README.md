@@ -144,7 +144,7 @@ returning `Hash` with scenarios data.
 For example:
 
 
-    #!perl6
+    #!raku
 
     use v6;
 

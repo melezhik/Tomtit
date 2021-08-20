@@ -1,3 +1,3 @@
-#!perl6
+#!raku
 
 task-run "git push", "git-push", %( confirm => "no" );

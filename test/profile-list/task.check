@@ -3,9 +3,10 @@ begin:
   ado
   azure
   git
+  gitlab
   hello
   perl
-  perl6
+  raku
   ruby
   yaml
 end:
