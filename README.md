@@ -8,7 +8,7 @@ Tomtit - Raku Task Runner.
 
 # INSTALL
 
-    zef install tomtit
+    zef install Tomtit
 
 # USAGE
 
