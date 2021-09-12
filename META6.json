@@ -22,6 +22,7 @@
     "profiles/raku/test.pl6",
     "profiles/raku/changes.pl6",
     "profiles/raku/release.pl6",
+    "profiles/cro/cro-yaml.pl6",
     "profiles/perl/set-pause.pl6",
     "profiles/perl/install.pl6",
     "profiles/perl/make-dist.pl6",
@@ -58,5 +59,5 @@
   },
   "tags" : [ ],
   "test-depends" : [ ],
-  "version" : "0.1.12"
+  "version" : "0.1.13"
 }

@@ -2,6 +2,10 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.1.13  2021-09-12T11:36:00Z
+
+    - Add `cro` profile
+
 0.1.12  2021-08-20T01:44:00Z
 
     - Add git@git-url-https-to-ssh helper
