@@ -2,7 +2,7 @@
 
 use v6;
 
-unit module Tomtit:ver<0.1.13>;
+unit module Tomtit:ver<0.1.14>;
 
 use File::Directory::Tree;
 
@@ -155,7 +155,7 @@ sub scenario-run ($dir,$scenario,%args?) is export {
     set-config(EVALFILE $conf-file);
   }
 
-  Sparrow6::Task::Repository::Api.new().index-update;
+  Sparrow6::Task::Repository::Api.new().index-update unless %args<no-index-update>;
 
   EVALFILE "$dir/$scenario.pl6";
 

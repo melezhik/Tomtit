@@ -288,9 +288,19 @@ You can set Tomtit configuration in `~/tom.yaml` file:
 
 # Options
 
-        --verbose   # run scenario in verbose mode
-        --quiet,-q  # run scenario in less verbose mode
-        --color     # color output
+        --verbose          # run scenario in verbose mode
+        --quiet,-q         # run scenario in less verbose mode
+        --color            # color output
+        --no_index_update  # don't update Sparrow repository index
+
+Example of `~/.tom.yaml` file:
+
+```yaml
+options:
+
+  no_index_update: true
+  quiet: true
+```
 
 # Bash completion
 

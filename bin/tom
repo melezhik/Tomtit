@@ -4,26 +4,27 @@ use Tomtit;
 
 sub MAIN (
   $run?, 
-  Bool :$verbose    = False, 
-  Bool :$quiet      = False,
-  Bool :$q          = False, # alias for $quiet 
-  Bool :$color      = False, 
-  Bool :$completion = False, 
-  Bool :$clean      = False, 
-  Bool :$help       = False, 
-  Bool :$init       = False,	
-  Bool :$list       = False, 
-  Bool :$profile    = False, 
-  Bool :$remove     = False, 
-  Bool :$doc        = False, 
-  Bool :$cat        = False, 
-  Bool :$lines      = False, 
-  Bool :$last       = False, 
-  Bool :$edit       = False, 
-  Bool :$env-set    = False, 
-  Bool :$env-edit   = False, 
-  Bool :$env-list   = False, 
-  Bool :$env-cat    = False, 
+  Bool :$verbose            = False, 
+  Bool :$no_index_update    = False, 
+  Bool :$quiet              = False,
+  Bool :$q                  = False, # alias for $quiet 
+  Bool :$color              = False, 
+  Bool :$completion         = False, 
+  Bool :$clean              = False, 
+  Bool :$help               = False, 
+  Bool :$init               = False,	
+  Bool :$list               = False, 
+  Bool :$profile            = False, 
+  Bool :$remove             = False, 
+  Bool :$doc                = False, 
+  Bool :$cat                = False, 
+  Bool :$lines              = False, 
+  Bool :$last               = False, 
+  Bool :$edit               = False, 
+  Bool :$env-set            = False, 
+  Bool :$env-edit           = False, 
+  Bool :$env-list           = False, 
+  Bool :$env-cat            = False, 
   Str  :$env 
 )
 
@@ -39,7 +40,8 @@ sub MAIN (
 
   my %config = load-conf();
   
-  my $quiet-mod     = $q || $quiet || %config<options><quiet>;
+  my $quiet-mod  = $q || $quiet || %config<options><quiet>;
+  my $no-index-update-mod  = $no_index_update || %config<options><no_index_update>;
 
  	%*ENV<SP6_FORMAT_TERSE> = 1 if $quiet-mod;
 
@@ -124,10 +126,11 @@ sub MAIN (
     scenario-run(
       "{$*CWD}/.tom",$run, 
       %( 
-        quiet     => $quiet-mod, 
-        verbose   => $verbose-mod, 
-        env       => $env,
-        color     => $color,
+        quiet           => $quiet-mod, 
+        verbose         => $verbose-mod, 
+        env             => $env,
+        color           => $color,
+        no-index-update => $no-index-update-mod,
       )
     );
 
