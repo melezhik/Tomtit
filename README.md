@@ -4,7 +4,7 @@ Tomtit - Raku Task Runner.
 
 # Build Status
 
-[![Build Status](https://travis-ci.org/melezhik/tomtit.svg?branch=master)](https://travis-ci.org/melezhik/tomtit)
+[![SparkyCI](http://sparrowhub.io:2222/project/gh-melezhik-Tomtit/badge)](http://sparrowhub.io:2222)
 
 # INSTALL
 
