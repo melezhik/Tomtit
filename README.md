@@ -6,7 +6,7 @@ Tomtit - Raku Task Runner.
 
 [![SparkyCI](http://sparrowhub.io:2222/project/gh-melezhik-Tomtit/badge)](http://sparrowhub.io:2222)
 
-# INSTALL
+# Install
 
     zef install Tomtit
 
@@ -17,7 +17,12 @@ and run them as Raku scenarios:
 
 ```bash
 mkdir -p tasks/hello
-echo "echo 'hello world'" > tasks/hello/task.bash
+```
+
+`tasks/hello/task.bash`:
+
+```bash
+echo 'hello world'
 ```
 
 `.tomty/hello.pl6`:
@@ -26,11 +31,10 @@ echo "echo 'hello world'" > tasks/hello/task.bash
 task-run "tasks/hello"
 ```
 
-You can do _more_ then that, read more about Sparrow6 tasks on Sparrow6 documentation:
+You can do _more_ then that, [read more](https://github.com/melezhik/Sparrow6/blob/master/documentation/development.md) 
+about Sparrow6 tasks on Sparrow6 documentation.
 
-[https://github.com/melezhik/Sparrow6/blob/master/documentation/development.md](https://github.com/melezhik/Sparrow6/blob/master/documentation/development.md)
-
-# CLI API
+# Cli api
 
     tom $action|$options $thing
 
@@ -115,35 +119,36 @@ one with ready to use function for some standard automation tasks:
 
 `.tom/example.pl6`:
 
-    # you can use Sparrow6 DSL functions
-    # to do many system tasks, like:
+```raku
+# you can use Sparrow6 DSL functions
+# to do many system tasks, like:
 
-    # create files and directories
+# create files and directories
 
-    file 'passwords.txt', %( content => "super secret" );
+file 'passwords.txt', %( content => "super secret" );
 
-    directory '.cache';
+directory '.cache';
 
-    # or restart service
+# or restart service
 
-    service-restart "web-app";
+service-restart "web-app";
 
-    # or you can run a specific sparrow plugin
-    # by using task-run function:
+# or you can run a specific sparrow plugin
+# by using task-run function:
 
-    task-run 'my task', 'plugin', %( foo => 'bar' );
+task-run 'my task', 'plugin', %( foo => 'bar' );
 
-    # for example, to set git repository, 
-    # use git-base plugin:
- 
-    task-run "set git", "git-base", %(
-      email => 'melezhik@gmail.com',
-      name  => 'Alexey Melezhik',
-      config_scope => 'local',
-      set_credential_cache => 'on'
-    );
+# for example, to set git repository, 
+# use git-base plugin:
 
-    
+task-run "set git", "git-base", %(
+    email => 'melezhik@gmail.com',
+    name  => 'Alexey Melezhik',
+    config_scope => 'local',
+    set_credential_cache => 'on'
+);
+```
+
 # Profiles
 
 Profiles are predefined sets of Tomtit scenarios.
@@ -328,7 +333,6 @@ Example of `~/.tom.yaml` file:
 
 ```yaml
 options:
-
   no_index_update: true
   quiet: true
 ```
@@ -347,11 +351,13 @@ You can install Bash completion for tom cli.
     zef install Tomty
     tomty --all # run tests
 
+# See also
+
+* [ake](https://github.com/Raku/ake) - a Raku make-a-like inspired by rake
 
 # Author
 
 Alexey Melezhik
-
 
 # Thanks to
 

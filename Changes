@@ -2,7 +2,11 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
-0.1.13  2022-05-10T17:00:00Z
+0.1.16  2022-07-10T07:30:00Z
+
+    - Refresh documentation
+    
+0.1.15  2022-05-10T17:00:00Z
 
     - Add --no_index_update option
     - Add SparkyCI badge
