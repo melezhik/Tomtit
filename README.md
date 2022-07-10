@@ -10,7 +10,27 @@ Tomtit - Raku Task Runner.
 
     zef install Tomtit
 
-# USAGE
+# Quick start
+
+Tomtit is a task runner based on Sparrow6 engine, so juts drop a few tasks under _some_ folder
+and run them as Raku scenarios:
+
+```bash
+mkdir -p tasks/hello
+echo "echo 'hello world'" > tasks/hello/task.bash
+```
+
+`.tomty/hello.pl6`:
+
+```raku
+task-run "tasks/hello"
+```
+
+You can do _more_ then that, read more about Sparrow6 tasks on Sparrow6 documentation:
+
+[https://github.com/melezhik/Sparrow6/blob/master/documentation/development.md](https://github.com/melezhik/Sparrow6/blob/master/documentation/development.md)
+
+# CLI API
 
     tom $action|$options $thing
 
@@ -53,26 +73,47 @@ Example:
 
     tom test        
 
-# Defining scenarios
+# Create scenarios
 
-Tomtit scenarios are just Sparrow6 scenarios you create in `.tom` directory, which is base Tomtit directory:
+Tomtit scenarios are just Raku wrappers for underlying Sparrow6 tasks. 
+
+Create a `.tom` directory, to hold all the scenarios:
   
     mkdir .tom/
     nano .tom/build.pl6
     nano .tom/test.pl6
     nano .tom/install.pl6
 
-You want to ignore Tomtit cache which commit files to SCM:
+And the drop some tasks at _some_ folder:
+
+`tasks/build/task.bash`:
+
+```bash
+set -e
+make
+make test
+make install 
+```
+
+`.tom/build.pl6`:
+
+```raku
+task-run "tasks/build";
+```
+
+You might want to ignore Tomtit cache which commit files to SCM:
 
     git add .tom/
     echo .tom/.cache >> .gitignore
 
 
-# Scenario example
+# Using prebuilt Sparrow6 DSL functions
 
-You can do anything, allowable through [Sparrow6 DSL](https://github.com/melezhik/Sparrow6/blob/master/documentation/dsl.md), like:
+[Sparrow6 DSL](https://github.com/melezhik/Sparrow6/blob/master/documentation/dsl.md) provides
+one with ready to use function for some standard automation tasks:
 
-    cat .tom/example.pl6
+
+`.tom/example.pl6`:
 
     # you can use Sparrow6 DSL functions
     # to do many system tasks, like:
@@ -87,7 +128,7 @@ You can do anything, allowable through [Sparrow6 DSL](https://github.com/melezhi
 
     service-restart "web-app";
 
-    # or you can run a certain sparrow plugin
+    # or you can run a specific sparrow plugin
     # by using task-run function:
 
     task-run 'my task', 'plugin', %( foo => 'bar' );
@@ -103,11 +144,6 @@ You can do anything, allowable through [Sparrow6 DSL](https://github.com/melezhi
     );
 
     
-And so on.
-
-As result you minimize code to execute many typical tasks.
-
-
 # Profiles
 
 Profiles are predefined sets of Tomtit scenarios.
@@ -143,24 +179,19 @@ returning `Hash` with scenarios data.
 
 For example:
 
+```raku
+unit module Tomtit::Profile::Pets:ver<0.0.1>;
 
-    #!raku
+our sub profile-data () {
 
-    use v6;
+    my %a is Map  = (
+    cat   => (slurp %?RESOURCES<cat.pl6>.Str),
+    dog   => (slurp %?RESOURCES<dog.pl6>.Str),
+    fish  => (slurp %?RESOURCES<fish.pl6>.Str)
+    );
 
-    unit module Tomtit::Profile::Pets:ver<0.0.1>;
-
-    our sub profile-data () {
-
-      my %a is Map  = (
-        cat   => (slurp %?RESOURCES<cat.pl6>.Str),
-        dog   => (slurp %?RESOURCES<dog.pl6>.Str),
-        fish  => (slurp %?RESOURCES<fish.pl6>.Str)
-      );
-
-    }
-
-
+}
+```
 
 The above module defines [Tomtit::Profile::Pets](https://github.com/melezhik/tomtit-profile-pets) profile with 3 scenarios `cat, dog, fish` installed 
 as module resources:
@@ -176,7 +207,7 @@ Now we can install it as regular Perl6 module and use through tom:
     zef install Tomtit::Profile::Pets
 
 Once module is installed we can install related profile. Note that we should replace `::` by `-` (\*) symbols
-when refering to profile name.
+when referring to profile name.
 
     tom --list --profile Tomtit-Profile-Pets
 
@@ -310,7 +341,6 @@ You can install Bash completion for tom cli.
     source  ~/.tom_completion.sh
 
 # Development
-
 
     git clone https://github.com/melezhik/Tomtit.git
     zef install --/test .
