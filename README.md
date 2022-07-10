@@ -1,6 +1,6 @@
 # Tomtit
 
-Tomtit - Raku Task Runner.
+Tomtit - Raku Task Runner
 
 # Build Status
 
