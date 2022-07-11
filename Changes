@@ -2,11 +2,13 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
-    - Fixing minor documentation glitchas
+0.1.17  2022-07-11T03:40:00Z
 
     - Breaking changes: ".pl6" -> ".raku"
       please rename all your Tomtit scenarios / configurations
       to have ".raku" extension
+
+    - Fixing minor documentation glitches
 
 0.1.16  2022-07-10T07:30:00Z
 
