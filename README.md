@@ -8,11 +8,13 @@ Tomtit - Raku Task Runner
 
 # Install
 
-    zef install Tomtit
+```bash
+zef install Tomtit
+```
 
 # Quick start
 
-Tomtit is a task runner based on Sparrow6 engine, so juts drop a few tasks under _some_ folder
+Tomtit is a task runner based on Sparrow6 engine, so just drop a few tasks under _some_ folder
 and run them as Raku scenarios:
 
 ```bash
@@ -22,13 +24,13 @@ mkdir -p tasks/hello
 `tasks/hello/task.bash`:
 
 ```bash
-echo 'hello world'
+echo "hello world"
 ```
 
 `.tomty/hello.pl6`:
 
 ```raku
-task-run "tasks/hello"
+task-run "tasks/hello";
 ```
 
 You can do _more_ then that, [read more](https://github.com/melezhik/Sparrow6/blob/master/documentation/development.md) 
@@ -96,7 +98,7 @@ And the drop some tasks at _some_ folder:
 set -e
 make
 make test
-make install 
+sudo make install 
 ```
 
 `.tom/build.pl6`:
@@ -120,16 +122,23 @@ one with ready to use function for some standard automation tasks:
 `.tom/example.pl6`:
 
 ```raku
+
 # you can use Sparrow6 DSL functions
 # to do many system tasks, like:
 
-# create files and directories
+# creation of files and directories
 
-file 'passwords.txt', %( content => "super secret" );
+file 'passwords.txt', %( 
+    owner => "root",
+    mode => "700",    
+    content => "super secret" 
+);
 
-directory '.cache';
+directory '.cache', %(
+    owner => "server"
+);
 
-# or restart service
+# or restarting of services
 
 service-restart "web-app";
 
@@ -177,9 +186,9 @@ For example to install `commit` scenario from `git` profile:
 
 # Portable profiles
 
-Tomtit exposes API to create portable profiles as regular Perl6 modules.
+Tomtit exposes API to create portable profiles as regular Raku modules.
 
-You should create Perl6 module in `Tomtit::Profile` namespace with the _our_ function `profile-data`, 
+You should create Raku module in `Tomtit::Profile` namespace with the _our_ function `profile-data`, 
 returning `Hash` with scenarios data.
 
 For example:
@@ -207,7 +216,7 @@ as module resources:
       fish.pl6
 
 
-Now we can install it as regular Perl6 module and use through tom:
+Now we can install it as regular Raku module and use through tom:
 
     zef install Tomtit::Profile::Pets
 
@@ -216,7 +225,7 @@ when referring to profile name.
 
     tom --list --profile Tomtit-Profile-Pets
 
-    load portable profile Tomtit::Profile::Pets as Perl6 module ...
+    load portable profile Tomtit::Profile::Pets as Raku module ...
     [profile scenarios]
     Tomtit::Profile::Pets@cat       installed: False
     Tomtit::Profile::Pets@dog       installed: False
@@ -252,7 +261,7 @@ Use `--lines` flag to print out with line numbers.
 
 # Environments
 
-* Tomtit environments are configuration files, written on Perl6 and technically speaking are plain Perl6 Hashes
+* Tomtit environments are configuration files, written on Raku and technically speaking are plain Raku Hashes
 
 * Environment configuration files should be placed at `.tom/conf` directory:
 
@@ -362,4 +371,3 @@ Alexey Melezhik
 # Thanks to
 
 God Who gives me inspiration in my work
-
