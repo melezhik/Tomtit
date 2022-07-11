@@ -1,4 +1,4 @@
 #!raku
 
-EVALFILE ".tom/commit.pl6";
-EVALFILE ".tom/push.pl6";
+EVALFILE ".tom/commit.raku";
+EVALFILE ".tom/push.raku";

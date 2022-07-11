@@ -2,6 +2,10 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.1.18  2022-07-11T03:40:00Z
+
+    - Fix: git-publish now users correct Tomtit scenarios
+
 0.1.17  2022-07-11T03:40:00Z
 
     - Breaking changes: ".pl6" -> ".raku"
