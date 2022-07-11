@@ -199,16 +199,15 @@ unit module Tomtit::Profile::Pets:ver<0.0.1>;
 our sub profile-data () {
 
     my %a is Map  = (
-    cat   => (slurp %?RESOURCES<cat.raku>.Str),
-    dog   => (slurp %?RESOURCES<dog.raku>.Str),
-    fish  => (slurp %?RESOURCES<fish.raku>.Str)
+        cat   => (slurp %?RESOURCES<cat.raku>.Str),
+        dog   => (slurp %?RESOURCES<dog.raku>.Str),
+        fish  => (slurp %?RESOURCES<fish.raku>.Str)
     );
 
 }
 ```
 
-The above module defines [Tomtit::Profile::Pets](https://github.com/melezhik/tomtit-profile-pets) profile with 3 scenarios `cat, dog, fish` installed 
-as module resources:
+The above module defines [Tomtit::Profile::Pets](https://github.com/melezhik/tomtit-profile-pets) profile with 3 scenarios `cat, dog, fish` installed as module resources:
 
     resources/
       cat.raku
