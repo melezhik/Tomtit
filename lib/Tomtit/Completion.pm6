@@ -162,7 +162,7 @@ sub options-list {
 sub profile-list ($type = 1) {
 
 
-  my @list = ( 'ado', 'azure', 'cro', 'git', 'gitlab', 'hello', 'perl', 'raku', 'ruby', 'yaml' );
+  my @list = ( 'ado', 'azure', 'cro', 'git', 'gitlab', 'hello', 'perl', 'raku', 'ruby', 'yaml', 'tomtit' );
 
     if %*ENV<TOMTIT_COMPLETE_DEBUG> {
 
@@ -193,7 +193,7 @@ sub scenario-list ($dir, $type = 1) {
     for dir($dir) -> $f {
 
       next unless "$f".IO ~~ :f;
-      next unless $f ~~ /\.pl6$/;
+      next unless $f ~~ /\.raku$/;
       my $scenario-name = substr($f.basename,0,($f.basename.chars)-4);
       @list.push($scenario-name);
 
@@ -221,7 +221,7 @@ sub environment-list ($dir, $type = 1 )  {
 
     if "$dir/current".IO ~~ :e  && "$dir/current".IO.resolve.IO.basename {
 
-      if "$dir/current".IO.resolve.IO.basename ~~ /config\.(.*)\.pl6/ {
+      if "$dir/current".IO.resolve.IO.basename ~~ /config\.(.*)\.raku/ {
         $current = "$0"
       }
 
@@ -230,9 +230,9 @@ sub environment-list ($dir, $type = 1 )  {
     for dir($dir) -> $f {
 
       next unless "$f".IO ~~ :f;
-      next unless $f ~~ /\.pl6$/;
+      next unless $f ~~ /\.raku$/;
 
-      if $f.basename ~~ /config\.(.*)\.pl6/ {
+      if $f.basename ~~ /config\.(.*)\.raku/ {
 
         @list.push("$0");
 

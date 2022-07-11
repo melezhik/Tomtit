@@ -22,7 +22,8 @@ my %profiles is Map = (
   'azure' => ( 'az-resources', 'az-account-set' , 'az-kv-show', 'az-sql-server-check-fw' ),
   'ado' => ( 'ado-pipeline-build-list', 'ado-pipeline-build-run' ),
   'hello' => ( 'world' ),
-  'yaml' => ( 'yaml-lint' )
+  'yaml' => ( 'yaml-lint' ),
+  'tomtit' => ( 'tomtit-pl6-to-raku' ),
 );
 
 # tom cli initializer
@@ -124,7 +125,7 @@ sub scenario-last ($dir) is export {
 
 sub scenario-run ($dir,$scenario,%args?) is export {
 
-  die "scenario $scenario not found" unless "$dir/$scenario.pl6".IO ~~ :e;
+  die "scenario $scenario not found" unless "$dir/$scenario.raku".IO ~~ :e;
 
   mkdir "$dir/.cache";
 
@@ -138,15 +139,15 @@ sub scenario-run ($dir,$scenario,%args?) is export {
 
   if %args<env> {
 
-    $conf-file = %args<env> eq 'default' ?? "$dir/env/config.pl6" !! "$dir/env/config.{%args<env>}.pl6";
+    $conf-file = %args<env> eq 'default' ?? "$dir/env/config.raku" !! "$dir/env/config.{%args<env>}.raku";
 
-  } elsif $current-env eq 'default' &&  "$dir/env/config.pl6".IO ~~ :e {
+  } elsif $current-env eq 'default' &&  "$dir/env/config.raku".IO ~~ :e {
 
-    $conf-file =  "$dir/env/config.pl6";
+    $conf-file =  "$dir/env/config.raku";
 
-  } elsif "$dir/env/config.{$current-env}.pl6".IO ~~ :e  {
+  } elsif "$dir/env/config.{$current-env}.raku".IO ~~ :e  {
 
-    $conf-file = "$dir/env/config.{$current-env}.pl6";
+    $conf-file = "$dir/env/config.{$current-env}.raku";
 
   }
 
@@ -157,14 +158,14 @@ sub scenario-run ($dir,$scenario,%args?) is export {
 
   Sparrow6::Task::Repository::Api.new().index-update unless %args<no-index-update>;
 
-  EVALFILE "$dir/$scenario.pl6";
+  EVALFILE "$dir/$scenario.raku";
 
 }
 
 sub scenario-remove ($dir,$scenario) is export {
 
-  if "$dir/$scenario.pl6".IO ~~ :e {
-    unlink "$dir/$scenario.pl6";
+  if "$dir/$scenario.raku".IO ~~ :e {
+    unlink "$dir/$scenario.raku";
     say "scenario $scenario removed"
   } else {
     say "scenario $scenario not found"
@@ -174,11 +175,11 @@ sub scenario-remove ($dir,$scenario) is export {
 
 sub scenario-cat ($dir,$scenario,%args?) is export {
 
-  if "$dir/$scenario.pl6".IO ~~ :e {
+  if "$dir/$scenario.raku".IO ~~ :e {
     say "[scenario $scenario]";
     my $i=0;
     
-    for "$dir/$scenario.pl6".IO.lines -> $l {
+    for "$dir/$scenario.raku".IO.lines -> $l {
       $i++;
       say %args<lines> ?? "[$i] $l" !! $l;
     }
@@ -192,12 +193,12 @@ sub scenario-edit ($dir,$scenario) is export {
 
     die "you should set EDITOR ENV to run editor" unless  %*ENV<EDITOR>;
 
-    unless "$dir/$scenario.pl6".IO ~~ :e {
-      my $confirm = prompt("$dir/$scenario.pl6 does not exit, do you want to create it? (type Y to confirm): ");
+    unless "$dir/$scenario.raku".IO ~~ :e {
+      my $confirm = prompt("$dir/$scenario.raku does not exit, do you want to create it? (type Y to confirm): ");
       return unless $confirm eq 'Y';
     }
 
-    shell "{%*ENV<EDITOR>} $dir/$scenario.pl6";
+    shell "{%*ENV<EDITOR>} $dir/$scenario.raku";
 
 }
 
@@ -220,7 +221,7 @@ sub environment-edit ($dir,$env) is export {
 
     mkdir $dir;
 
-    my $conf-file = ( $env eq 'default' ) ?? "$dir/config.pl6" !! "$dir/config.{$env}.pl6";
+    my $conf-file = ( $env eq 'default' ) ?? "$dir/config.raku" !! "$dir/config.{$env}.raku";
 
     unless $conf-file.IO ~~ :e {
       my $confirm = prompt("$conf-file does not exit, do you want to create it? (type Y to confirm): ");
@@ -244,9 +245,9 @@ sub environment-list ($dir) is export {
     for dir($dir) -> $f {
 
       next unless "$f".IO ~~ :f;
-      next unless $f ~~ /\.pl6$/;
+      next unless $f ~~ /\.raku$/;
 
-      if $f.basename ~~ /config\.(.*)\.pl6/ {
+      if $f.basename ~~ /config\.(.*)\.raku/ {
 
         @list.push("$0");
 
@@ -286,7 +287,7 @@ sub environment-show ($dir) is export {
 
     my $current = "$dir/current".IO.resolve.IO.basename;
 
-      if $current ~~ /config\.(.*)\.pl6/ {
+      if $current ~~ /config\.(.*)\.raku/ {
 
         say "current environment: $0"
 
@@ -296,13 +297,13 @@ sub environment-show ($dir) is export {
 
       }
 
-  } elsif "$dir/config.pl6".IO ~~ :e {
+  } elsif "$dir/config.raku".IO ~~ :e {
 
     say "default";
 
   } else {
 
-    say "default environment is not set, create default configuration file (.tom/env/config.pl6)
+    say "default environment is not set, create default configuration file (.tom/env/config.raku)
 or use tom --set-env \$env to set default environments"
   }
   
@@ -313,9 +314,9 @@ sub environment-cat ($dir,$env,%args?) is export {
   my $conf-file;
 
   if $env eq "default" {
-    $conf-file = "$dir/config.pl6"
+    $conf-file = "$dir/config.raku"
   } else {
-    $conf-file = "$dir/config.{$env}.pl6"
+    $conf-file = "$dir/config.{$env}.raku"
   }
 
   if "$conf-file".IO ~~ :e {
@@ -337,9 +338,9 @@ sub environment-cat ($dir,$env,%args?) is export {
 
 sub scenario-doc ($dir,$scenario) is export {
 
-  die "scenario $scenario not found" unless "$dir/$scenario.pl6".IO ~~ :e;
+  die "scenario $scenario not found" unless "$dir/$scenario.raku".IO ~~ :e;
 
-  run $*EXECUTABLE, '--doc', "$dir/$scenario.pl6";
+  run $*EXECUTABLE, '--doc', "$dir/$scenario.raku";
 
 }
 
@@ -350,7 +351,7 @@ sub scenario-list ($dir) is export {
     for dir($dir) -> $f {
 
       next unless "$f".IO ~~ :f;
-      next unless $f ~~ /\.pl6$/;
+      next unless $f ~~ /\.raku$/;
       my $scenario-name = substr($f.basename,0,($f.basename.chars)-4);
       @list.push($scenario-name);
 
@@ -414,7 +415,7 @@ multi sub profile-list($dir,$profile is copy)  is export {
 
   for @list -> $s {
 
-    my $installed = "$dir/$s.pl6".IO ~~ :f;
+    my $installed = "$dir/$s.raku".IO ~~ :f;
 
     say "$profile\@$s\tinstalled: $installed";
 
@@ -460,7 +461,7 @@ sub profile-install ($dir, $profile is copy, %args?) is export {
 
     for %list.keys.sort -> $s {
       say "install $profile\@$s ...";
-      my $fh = open "$dir/$s.pl6", :w;
+      my $fh = open "$dir/$s.raku", :w;
       $fh.print(%list{$s});
       $fh.close;
     }
@@ -478,10 +479,10 @@ sub profile-install ($dir, $profile is copy, %args?) is export {
     }
 
     for @list -> $s {
-      if %?RESOURCES{"profiles/$profile/$s.pl6"}.Str.IO ~~ :f {
+      if %?RESOURCES{"profiles/$profile/$s.raku"}.Str.IO ~~ :f {
         say "install $profile\@$s ...";
-        my $fh = open "$dir/$s.pl6", :w;
-        $fh.print(slurp %?RESOURCES{"profiles/$profile/$s.pl6"}.Str);
+        my $fh = open "$dir/$s.raku", :w;
+        $fh.print(slurp %?RESOURCES{"profiles/$profile/$s.raku"}.Str);
         $fh.close;
       } else {
         say "no perl6 resource found for $profile\@$s scenario ... skipping it";

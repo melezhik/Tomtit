@@ -27,7 +27,7 @@ mkdir -p tasks/hello
 echo "hello world"
 ```
 
-`.tomty/hello.pl6`:
+`.tomty/hello.raku`:
 
 ```raku
 task-run "tasks/hello";
@@ -86,9 +86,9 @@ Tomtit scenarios are just Raku wrappers for underlying Sparrow6 tasks.
 Create a `.tom` directory, to hold all the scenarios:
   
     mkdir .tom/
-    nano .tom/build.pl6
-    nano .tom/test.pl6
-    nano .tom/install.pl6
+    nano .tom/build.raku
+    nano .tom/test.raku
+    nano .tom/install.raku
 
 And the drop some tasks at _some_ folder:
 
@@ -101,7 +101,7 @@ make test
 sudo make install 
 ```
 
-`.tom/build.pl6`:
+`.tom/build.raku`:
 
 ```raku
 task-run "tasks/build";
@@ -119,7 +119,7 @@ You might want to ignore Tomtit cache which commit files to SCM:
 one with ready to use function for some standard automation tasks:
 
 
-`.tom/example.pl6`:
+`.tom/example.raku`:
 
 ```raku
 
@@ -199,9 +199,9 @@ unit module Tomtit::Profile::Pets:ver<0.0.1>;
 our sub profile-data () {
 
     my %a is Map  = (
-    cat   => (slurp %?RESOURCES<cat.pl6>.Str),
-    dog   => (slurp %?RESOURCES<dog.pl6>.Str),
-    fish  => (slurp %?RESOURCES<fish.pl6>.Str)
+    cat   => (slurp %?RESOURCES<cat.raku>.Str),
+    dog   => (slurp %?RESOURCES<dog.raku>.Str),
+    fish  => (slurp %?RESOURCES<fish.raku>.Str)
     );
 
 }
@@ -211,9 +211,9 @@ The above module defines [Tomtit::Profile::Pets](https://github.com/melezhik/tom
 as module resources:
 
     resources/
-      cat.pl6
-      dog.pl6
-      fish.pl6
+      cat.raku
+      dog.raku
+      fish.raku
 
 
 Now we can install it as regular Raku module and use through tom:
@@ -265,7 +265,7 @@ Use `--lines` flag to print out with line numbers.
 
 * Environment configuration files should be placed at `.tom/conf` directory:
 
-.tom/env/config.pl6:
+.tom/env/config.raku:
 
 
     {
@@ -276,7 +276,7 @@ Use `--lines` flag to print out with line numbers.
 
 Run Tomtit.
 
-It will pick the `.tom/env/config.pl6` and read configuration from it, variables will be accessible as `config` Hash,
+It will pick the `.tom/env/config.raku` and read configuration from it, variables will be accessible as `config` Hash,
 inside Tomtit scenarios:
 
 
@@ -284,11 +284,11 @@ inside Tomtit scenarios:
     my $who-are-you = config<who-are-you>;
 
 
-To define _named_ configuration ( environment ), simply create `.tom/env/config{$env}.pl6` file and refer to it through 
+To define _named_ configuration ( environment ), simply create `.tom/env/config{$env}.raku` file and refer to it through 
 `--env=$env` parameter:
 
 
-    nano .tom/env/config.prod.pl6
+    nano .tom/env/config.prod.raku
 
     tom --env=prod ... other parameters here # will run with production configuration
 
