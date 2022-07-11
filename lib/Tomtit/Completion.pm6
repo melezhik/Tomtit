@@ -194,7 +194,7 @@ sub scenario-list ($dir, $type = 1) {
 
       next unless "$f".IO ~~ :f;
       next unless $f ~~ /\.raku$/;
-      my $scenario-name = substr($f.basename,0,($f.basename.chars)-4);
+      my $scenario-name = substr($f.basename,0,($f.basename.chars)-5);
       @list.push($scenario-name);
 
     }
