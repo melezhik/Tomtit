@@ -1,7 +1,7 @@
 lib/.precomp/
 .precomp
 *.tar.gz
-Tomtit-*
+#Tomtit-*
 .cache
 .tom/env/current
 .tomty/env/current
