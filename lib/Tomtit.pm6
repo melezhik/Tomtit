@@ -2,7 +2,7 @@
 
 use v6;
 
-unit module Tomtit:ver<0.1.20>;
+unit module Tomtit:ver<0.1.21>;
 
 use File::Directory::Tree;
 
@@ -14,7 +14,7 @@ use Sparrow6::DSL;
 
 my %profiles is Map = (
   'perl' => ( 'set-pause', 'make-dist', 'install', 'test', 'changes', 'release' ),
-  'raku' =>  ( 'set-pause', 'test', 'install', 'changes', 'release' ),
+  'raku' =>  ( 'test', 'install', 'changes', 'release' ),
   'cro' => ( 'cro-yaml' ),
   'git' => ( 'set-git', 'commit', 'push', 'git-branch-delete', 'pull', 'status', 'git-summary', 'git-publish', 'update-branch-list', 'github-url-https-to-ssh' ),
   'gitlab' => ( 'gitlab-run-pipeline' ), 

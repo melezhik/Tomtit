@@ -30,7 +30,7 @@ sub MAIN (
 
 {
 
- 	%*ENV<SP6_FORMAT_COLOR> = $color;
+ 	%*ENV<SP6_FORMAT_COLOR> ||= $color;
 
   if $init {
 	  init("{$*CWD}/.tom");
