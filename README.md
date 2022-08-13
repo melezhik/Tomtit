@@ -332,11 +332,11 @@ You can set Tomtit configuration in `~/tom.yaml` file:
 
 # Options
 
-  --verbose          # run scenario in verbose mode
-  --quiet,-q         # run scenario in less verbose mode
-  --color            # color output
-  --no_index_update  # don't update Sparrow repository index
-  --dump_task        # dump task code before execution, see SP6_DUMP_TASK_CODE Sparrow documentation
+    --verbose          # run scenario in verbose mode
+    --quiet,-q         # run scenario in less verbose mode
+    --color            # color output
+    --no_index_update  # don't update Sparrow repository index
+    --dump_task        # dump task code before execution, see SP6_DUMP_TASK_CODE Sparrow documentation
 
 Example of `~/.tom.yaml` file:
 
