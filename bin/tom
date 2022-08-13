@@ -22,7 +22,7 @@ sub MAIN (
   Bool :$last               = False, 
   Bool :$edit               = False, 
   Bool :$env-set            = False,
-  Bool :$dump-task          = False, 
+  Bool :$dump_task          = False, 
   Bool :$env-edit           = False, 
   Bool :$env-list           = False, 
   Bool :$env-cat            = False, 
@@ -35,7 +35,7 @@ sub MAIN (
  	  %*ENV<SP6_FORMAT_COLOR> = 1
   }
 
-  if $dump-task == True {
+  if $dump_task == True {
     %*ENV<SP6_DUMP_TASK_CODE> = 1
   }
 

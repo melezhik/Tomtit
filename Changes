@@ -2,10 +2,14 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.0.22 2022-08-13T19:00:00Z
+
+    - More accurate way to handle `--color` option
+    - Adding `--dump_task` option
+
 0.0.21 2022-08-10T17:40:00Z
 
     - Fix error in Raku profile
-
     - Respect `SP6_FORMAT_COLOR` env var
 
 0.0.20 2022-07-12T10:40:00Z
