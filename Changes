@@ -2,6 +2,10 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.0.23 2022-08-13T19:15:00Z
+
+    - Minor documentation fix (broken markdown)
+
 0.0.22 2022-08-13T19:00:00Z
 
     - More accurate way to handle `--color` option
