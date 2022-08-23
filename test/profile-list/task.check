@@ -1,12 +1,13 @@
 begin:
-  profiles
-  ado
-  azure
-  git
-  gitlab
-  hello
-  perl
-  raku
-  ruby
-  yaml
+ado
+azure
+cro
+git
+gitlab
+hello
+perl
+raku
+ruby
+tomtit
+yaml
 end:

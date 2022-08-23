@@ -8,6 +8,6 @@ main:
   build:
     pre: |
       set -e
-      export SP6_DUMP_TASK_CODE=1
+      #export SP6_DUMP_TASK_CODE=1
       zef install . --/test
-      tomty  --all --verbose --color 
+      tomty  --all --show-failed --color 
