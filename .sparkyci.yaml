@@ -9,6 +9,7 @@ main:
     pre: |
       set -e
       export SP6_DUMP_TASK_CODE=1
+      zef update 
       zef upgrade Tomty --/test
       zef install . --/test
       tomty  --all --verbose --color 
