@@ -4,7 +4,7 @@ Tomtit - Raku Task Runner
 
 # Build Status
 
-[![SparkyCI](http://sparrowhub.io:2222/project/gh-melezhik-Tomtit/badge)](http://sparrowhub.io:2222)
+[![SparkyCI](https://ci.sparrowhub.io/project/gh-melezhik-Tomty/badge)](https://ci.sparrowhub.io)
 
 # Install
 
