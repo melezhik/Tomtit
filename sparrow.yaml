@@ -1,0 +1,11 @@
+tasks:
+  -
+    name: tomty
+    language: Bash
+    default: true
+    code: |
+      set -e
+      cd source/
+      zef install . --/test
+      export SP6_LOG_NO_TIMESTAMPS=1
+      tomty  --all --show-failed --color --dump-task
