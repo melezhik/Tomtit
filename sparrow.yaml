@@ -8,5 +8,4 @@ tasks:
       cd source/
       zef install . --/test
       export SP6_LOG_NO_TIMESTAMPS=1
-      PATH=/opt/rakudo-pkg/share/perl6/site/bin/:$PATH \
       tomty  --all --show-failed --color --dump-task
