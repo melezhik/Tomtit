@@ -1,6 +1,4 @@
-#!perl6
-
-use v6;
+#!raku
 
 unit module Tomtit:ver<0.1.25>;
 

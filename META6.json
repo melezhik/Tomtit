@@ -15,7 +15,7 @@
   "perl" : "6.*",
   "provides" : {
     "Tomtit" : "lib/Tomtit.pm6",
-    "Tomtit::Completion" : "lib/Tomtit/Completion.pm6"
+    "Tomtit::Completion" : "lib/Tomtit/Completion.rakumod"
   },
   "resources" : [
     "profiles/raku/install.raku",
