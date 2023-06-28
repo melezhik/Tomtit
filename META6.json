@@ -14,7 +14,7 @@
   "name" : "Tomtit",
   "perl" : "6.*",
   "provides" : {
-    "Tomtit" : "lib/Tomtit.pm6",
+    "Tomtit" : "lib/Tomtit.rakumod",
     "Tomtit::Completion" : "lib/Tomtit/Completion.rakumod"
   },
   "resources" : [

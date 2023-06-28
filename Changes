@@ -2,7 +2,7 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
-0.0.25 2023-06-28T14:20:00Z
+0.0.25 2023-06-28T15:01:00Z
 
     - Support git-commit-prefix in commit scenario
     - Adjust sparrowci  to allow automatic releases
