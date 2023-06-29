@@ -1,3 +1,6 @@
+image:
+  - melezhik/sparrow:debian
+
 tasks:
   -
     name: tomty
@@ -24,7 +27,10 @@ tasks:
     language: Bash
     code: |
       set -e
-      sudo apk add zlib
+
+      sudo apt-get update
+      sudo apt-get install -y libz-dev > /dev/null
+
       zef install --/test fez
 
       cat << HERE > ~/.fez-config.json
