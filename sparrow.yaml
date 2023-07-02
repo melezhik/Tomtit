@@ -1,6 +1,3 @@
-image:
-  - melezhik/sparrow:debian
-
 tasks:
   -
     name: tomty
@@ -28,8 +25,7 @@ tasks:
     code: |
       set -e
 
-      sudo apt-get update
-      sudo apt-get install -y libz-dev > /dev/null
+      apk add zlib-dev
 
       zef install --/test fez
 
@@ -43,5 +39,5 @@ tasks:
       cd source/
 
       tom --clean
-      fez -v
+      fez version
       fez upload --unattended
