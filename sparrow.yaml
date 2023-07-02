@@ -25,7 +25,7 @@ tasks:
     code: |
       set -e
 
-      apk add zlib-dev
+      sudo apk add zlib-dev
 
       zef install --/test fez
 
