@@ -1,6 +1,6 @@
 #!raku
 
-unit module Tomtit:ver<0.1.25>;
+unit module Tomtit:ver<0.1.26>;
 
 use File::Directory::Tree;
 
@@ -46,7 +46,7 @@ our sub load-conf () is export {
   my %conf = Hash.new;
 
   if $*DISTRO.is-win {
-    if "{%*ENV<HOMEDRIVE>}{%*ENV<HOMEPATH>}/tomty.yaml".IO ~~ :e {
+    if "{%*ENV<HOMEDRIVE>}{%*ENV<HOMEPATH>}/tom.yaml".IO ~~ :e {
       %conf = load-yaml(slurp "{%*ENV<HOMEDRIVE>}{%*ENV<HOMEPATH>}/tom.yaml");
     }
   } else {  

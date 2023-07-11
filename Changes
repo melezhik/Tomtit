@@ -2,6 +2,10 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.0.26 2023-07-11T15:20:00Z
+
+    - Minor fixes (~/tom.yaml file)
+
 0.0.25 2023-06-28T15:01:00Z
 
     - Support git-commit-prefix in commit scenario
