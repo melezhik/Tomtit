@@ -12,7 +12,7 @@ tasks:
       my @columns = ("Rakudo Version", "Status", "Time", "Linux Dist");
       my @rows;
       my $fail = False;
-      for config()<tasks><multi-versions><state><list><> -> $i {
+      for config()<tasks><test-versions><state><list><> -> $i {
         @rows.push: [ $i<version>, $i<status>,  $i<time>, os() ];
         $fail = True unless $i<status> eq "OK";
       }
