@@ -2,6 +2,11 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.0.27 2023-09-19T15:00:00Z
+
+    - Use simplified flow 
+      as there is no Rakudo distro for ARM
+
 0.0.26 2023-07-11T15:20:00Z
 
     - Minor fixes (~/tom.yaml file)
