@@ -499,7 +499,7 @@ sub completion-install () is export {
 
   my $fh = open %*ENV<HOME> ~ '/.tom_completion.sh' , :w;
 
-  $fh.print(slurp %?RESOURCES{"completion.sh"}.Str);
+  $fh.print(slurp %?RESOURCES{"completion.sh"});
 
   $fh.close;
 
