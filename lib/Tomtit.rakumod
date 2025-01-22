@@ -1,6 +1,6 @@
 #!raku
 
-unit module Tomtit:ver<0.1.28>;
+unit module Tomtit:ver<0.1.30>;
 
 use File::Directory::Tree;
 

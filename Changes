@@ -2,6 +2,10 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.0.30 2024-01-22T19:30:00Z
+
+    - Move CI to Sparky
+
 0.0.29 2024-01-22T17:10:00Z
 
     - Fix: remove another
