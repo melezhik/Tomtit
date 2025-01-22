@@ -50,6 +50,7 @@
     "profiles/hello/world.raku",
     "profiles/yaml/yaml-lint.raku",
     "profiles/tomtit/tomtit-pl6-to-raku.raku",
+    "profiles/code/search.raku",
     "completion.sh"
   ],
   "source-type" : "git",
@@ -60,5 +61,5 @@
   },
   "tags" : [ ],
   "test-depends" : [ ],
-  "version" : "0.1.27"
+  "version" : "0.1.28"
 }

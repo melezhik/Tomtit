@@ -1,6 +1,6 @@
 #!raku
 
-unit module Tomtit:ver<0.1.26>;
+unit module Tomtit:ver<0.1.28>;
 
 use File::Directory::Tree;
 
@@ -22,6 +22,7 @@ my %profiles is Map = (
   'hello' => ( 'world' ),
   'yaml' => ( 'yaml-lint' ),
   'tomtit' => ( 'tomtit-pl6-to-raku' ),
+  'code' => ( 'search' ),
 );
 
 # tom cli initializer
@@ -477,10 +478,10 @@ sub profile-install ($dir, $profile is copy, %args?) is export {
     }
 
     for @list -> $s {
-      if %?RESOURCES{"profiles/$profile/$s.raku"}.Str.IO ~~ :f {
+      if %?RESOURCES{"profiles/$profile/$s.raku"}.IO ~~ :f {
         say "install $profile\@$s ...";
         my $fh = open "$dir/$s.raku", :w;
-        $fh.print(slurp %?RESOURCES{"profiles/$profile/$s.raku"}.Str);
+        $fh.print(slurp %?RESOURCES{"profiles/$profile/$s.raku"});
         $fh.close;
       } else {
         say "no perl6 resource found for $profile\@$s scenario ... skipping it";

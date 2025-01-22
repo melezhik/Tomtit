@@ -2,6 +2,13 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.0.28 2024-01-22T16:40:00Z
+
+    - Add code profile
+      with useful utilities
+    - Fix: remove
+      Method Str (from Distribution::Resource) seen at
+
 0.0.27 2023-09-19T15:00:00Z
 
     - Use simplified flow 
