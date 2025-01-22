@@ -8,9 +8,12 @@ my $search2 = prompt("search2: ");
 
 my $exclude = prompt("exclude: ");
 
+say "find [$search1] [$search2] !$exclude in $ext";
+
 task-run "find $search1 $search2 in $ext", "find", %(
   :$ext,
   :$search1,
-  :$search2,
-  :$exclude,
+  search2 => $search2 || "",
+  exclude => $exclude || "",
 );
+
