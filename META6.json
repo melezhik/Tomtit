@@ -51,6 +51,8 @@
     "profiles/yaml/yaml-lint.raku",
     "profiles/tomtit/tomtit-pl6-to-raku.raku",
     "profiles/code/search.raku",
+    "profiles/go/go-build.raku",
+    "profiles/go/go-format.raku",
     "completion.sh"
   ],
   "source-type" : "git",

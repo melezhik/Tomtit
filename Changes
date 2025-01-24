@@ -2,6 +2,10 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.0.31 2024-01-24T11:40:00Z
+
+    - Add golang profile
+    
 0.0.30 2024-01-22T21:44:00Z
 
     - Move CI to Sparky
