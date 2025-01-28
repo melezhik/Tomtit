@@ -1,1 +1,3 @@
-task-run "go format", "go-format";
+task-run "go format", "go-format", %(
+  files => "*.go",
+);
