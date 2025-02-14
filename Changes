@@ -2,6 +2,11 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.0.32 2024-02-14T14:50:00Z
+
+    - Use latest version of Sparrow6
+      to address #1
+
     - Slight improvemments of
       go-format scenario
 

@@ -5,7 +5,7 @@
   ],
   "build-depends" : [ ],
   "depends" : [
-    "Sparrow6:ver<0.0.37+>",
+    "Sparrow6:ver<0.0.57+>",
     "File::Directory::Tree",
     "YAMLish"
   ],
@@ -63,5 +63,5 @@
   },
   "tags" : [ ],
   "test-depends" : [ ],
-  "version" : "0.1.31"
+  "version" : "0.1.32"
 }
