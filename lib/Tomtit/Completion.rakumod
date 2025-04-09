@@ -162,7 +162,21 @@ sub options-list {
 sub profile-list ($type = 1) {
 
 
-  my @list = ( 'ado', 'azure', 'cro', 'git', 'gitlab', 'hello', 'perl', 'raku', 'ruby', 'yaml', 'tomtit', 'code', 'go' );
+  my @list = ( 
+      'ado', 
+      'azure', 
+      'cro', 
+      'git', 
+      'gitlab', 
+      'hello', 
+      'perl', 
+      'raku', 
+      'ruby', 
+      'yaml', 
+      'tomtit', 
+      'code', 
+      'go' 
+    );
 
     if %*ENV<TOMTIT_COMPLETE_DEBUG> {
 

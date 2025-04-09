@@ -53,6 +53,8 @@
     "profiles/code/search.raku",
     "profiles/go/go-build.raku",
     "profiles/go/go-format.raku",
+    "profiles/go/proto-list.raku",
+    "profiles/go/proto-dump.raku",
     "completion.sh"
   ],
   "source-type" : "git",
@@ -63,5 +65,5 @@
   },
   "tags" : [ ],
   "test-depends" : [ ],
-  "version" : "0.1.32"
+  "version" : "0.1.33"
 }

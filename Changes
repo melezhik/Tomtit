@@ -2,6 +2,10 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.0.32 2025-04-09T11:20:00Z
+
+    - Add go/proto* helpers
+
 0.0.32 2024-02-14T14:50:00Z
 
     - Use latest version of Sparrow6

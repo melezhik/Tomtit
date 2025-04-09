@@ -1,6 +1,6 @@
 #!raku
 
-unit module Tomtit:ver<0.1.32>;
+unit module Tomtit:ver<0.1.33>;
 
 use File::Directory::Tree;
 
@@ -23,7 +23,7 @@ my %profiles is Map = (
   'yaml' => ( 'yaml-lint' ),
   'tomtit' => ( 'tomtit-pl6-to-raku' ),
   'code' => ( 'search' ),
-  'go' => ( 'go-build', 'go-format' ),
+  'go' => ( 'go-build', 'go-format', 'proto-list', 'proto-dump' ),
 );
 
 # tom cli initializer
