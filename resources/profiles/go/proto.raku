@@ -1,4 +1,4 @@
-my $file = " api/sync/mes_facade/mes_facade.proto";
+my $file = "file.proto";
 
 my $st = task-run "list types", "proto-parser", %(
   :$file,
@@ -22,8 +22,8 @@ if $st<list> {
   my $n = prompt("type (1 .. {@list.elems}): ");
   my $type = @list[$n-1]<name>;
   task-run "dump", "proto-parser", %(
-    :type
-    :action<dump>,
+    :$type,
+    action => "dump",
     :$file,
   );
 }
