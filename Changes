@@ -2,7 +2,11 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
-0.0.33 2025-04-10T23:25:00Z
+0.0.35 2025-04-10T23:40:00Z
+
+    - Fix changelog
+
+0.0.34 2025-04-10T23:25:00Z
 
     - Make actual release
 
