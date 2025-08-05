@@ -27,7 +27,7 @@ mkdir -p tasks/hello
 echo "hello world"
 ```
 
-`.tomty/hello.raku`:
+`.tom/hello.raku`:
 
 ```raku
 task-run "tasks/hello";
@@ -106,6 +106,11 @@ sudo make install
 ```raku
 task-run "tasks/build";
 ```
+
+Note above that the primary task in the folder has the filename `task.bash`.  
+In your scenario file, the `task-run` command will only take a directory, but 
+it will be looking for a file with the name `task.*` (where * can be any of 
+the supported languages).  
 
 You might want to ignore Tomtit cache which commit files to SCM:
 
@@ -357,8 +362,8 @@ You can install Bash completion for tom cli.
 
     git clone https://github.com/melezhik/Tomtit.git
     zef install --/test .
-    zef install Tomty
-    tomty --all # run tests
+    zef install Tomtit
+    tom
 
 # See also
 
