@@ -84,7 +84,7 @@ Example:
 Tomtit scenarios are just Raku wrappers for underlying Sparrow6 tasks. 
 
 Create a `.tom` directory, to hold all the scenarios:
-  
+
     mkdir .tom/
     nano .tom/build.raku
     nano .tom/test.raku
@@ -107,10 +107,10 @@ sudo make install
 task-run "tasks/build";
 ```
 
-Note above that the primary task in the folder has the filename `task.bash`.  
+Note above that the primary task in the folder has the filename `task.bash`.
 In your scenario file, the `task-run` command will only take a directory, but 
 it will be looking for a file with the name `task.*` (where * can be any of 
-the supported languages).  
+the supported languages).
 
 You might want to ignore Tomtit cache which commit files to SCM:
 
@@ -118,7 +118,7 @@ You might want to ignore Tomtit cache which commit files to SCM:
     echo .tom/.cache >> .gitignore
 
 
-# Using prebuilt Sparrow6 DSL functions
+# Using pre built Sparrow6 DSL functions
 
 [Sparrow6 DSL](https://github.com/melezhik/Sparrow6/blob/master/documentation/dsl.md) provides
 one with ready to use function for some standard automation tasks:
@@ -291,7 +291,6 @@ inside Tomtit scenarios:
 To define _named_ configuration ( environment ), simply create `.tom/env/config{$env}.raku` file and refer to it through 
 `--env=$env` parameter:
 
-
     nano .tom/env/config.prod.raku
 
     tom --env=prod ... other parameters here # will run with production configuration
@@ -315,6 +314,57 @@ To view environment configuration use `--env-cat` command:
 You print out the list of all environments by using `--env-list` parameters:
 
     tom --env-list
+
+## Common environments
+
+It's handy to have so called common environments that get mixed into any environment
+adding some common configuration data. Just create `any` environemnt and that's will be it:
+
+```bash
+tom --edit any
+```
+
+```raku
+#!raku
+%(
+  foo => "bar",
+  id => 1000,
+)
+```
+
+```bash
+tom --edit my
+```
+
+```raku
+#!raku
+%(
+  # override some default
+  # parameters
+  # defined in any
+  foo => "bar1",
+  name => "John",
+)
+```
+
+```
+tom --edit dump-conf
+```
+
+```raku
+say config().raku;
+```
+
+```
+tom --env=my dump-conf
+```
+
+```
+load configuration from /Users/alex/projects/Tomtit/.tom/env/config.my.raku
+mix in common configuration from /Users/alex/projects/Tomtit/.tom/env/config.any.raku
+14:11:47 :: [repository] - index updated from https://sparrowhub.io/repo/api/v1/index
+{:foo("bar1"), :id(1000), :name("John")}
+```
 
 # Tomtit cli configuration
 

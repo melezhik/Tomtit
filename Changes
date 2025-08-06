@@ -2,6 +2,10 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+0.0.36 2025-08-04T14:20:00Z
+
+    - Support common environments
+
 0.0.35 2025-04-10T23:40:00Z
 
     - Fix changelog

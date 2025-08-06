@@ -1,6 +1,6 @@
 #!raku
 
-unit module Tomtit:ver<0.1.35>;
+unit module Tomtit:ver<0.1.36>;
 
 use File::Directory::Tree;
 
@@ -153,7 +153,17 @@ sub scenario-run ($dir,$scenario,%args?) is export {
 
   if $conf-file && $conf-file.IO ~~ :e {
     say "load configuration from $conf-file";
-    set-config(EVALFILE $conf-file);
+    if "$dir/env/config.any.raku".IO ~~ :f {
+      say "mix in common configuration from $dir/env/config.any.raku";
+      set-config((EVALFILE $conf-file),(EVALFILE "$dir/env/config.any.raku"));
+    } else {
+      set-config(EVALFILE $conf-file);
+    }
+  } else {
+    if "$dir/env/config.any.raku".IO ~~ :f {
+      say "mix in common configuration from $dir/env/config.any.raku";
+      set-config(%(), EVALFILE "$dir/env/config.any.raku");
+    }
   }
 
   Sparrow6::Task::Repository::Api.new().index-update unless %args<no-index-update>;
