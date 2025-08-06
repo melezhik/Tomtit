@@ -5,6 +5,5 @@ set -e
 tom --profile hello@world
 
 tom world
-echo LAST
+echo "==="
 tom --last
-echo LAST

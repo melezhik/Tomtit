@@ -1,8 +1,6 @@
+begin:
 hello world!!!
-
-between: {LAST} {LAST}
-
-  world
-
+===
+world
 end:
 

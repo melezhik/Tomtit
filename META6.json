@@ -5,7 +5,7 @@
   ],
   "build-depends" : [ ],
   "depends" : [
-    "Sparrow6:ver<0.0.57+>",
+    "Sparrow6:ver<0.0.76+>",
     "File::Directory::Tree",
     "YAMLish"
   ],
