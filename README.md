@@ -119,12 +119,11 @@ It's also possible to pass parameters to `task-run`, as per the
 [Task Configuration](https://github.com/melezhik/Sparrow6/blob/master/documentation/development.md#task-configuration)
 documentation; these override the configuration for the task.  
 
-You may wish to add the Tomtit cache (which commit files to SCM) to your 
-.gitignore:
+In order to avoid committing the Tomtit cache to your Source Control 
+Management, you may wish to add it to your .gitignore:
 
     git add .tom/
     echo .tom/.cache >> .gitignore
-
 
 # Using pre built Sparrow6 DSL functions
 
