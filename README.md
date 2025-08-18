@@ -110,13 +110,20 @@ task-run "tasks/build";
 Note above that the primary task in the folder has the filename `task.bash`.
 In your scenario file, the `task-run` command will only take a directory, but 
 it will be looking for a file with the name `task.*` (where * can be any of 
-the supported languages).
+the supported languages).  The advantage is that eg. task.bash can be changed 
+to task.raku (or any other switch) without affecting the code that calls the 
+task, since parameters are passed to tasks the same way regardless of 
+underlying language.  
 
-You might want to ignore Tomtit cache which commit files to SCM:
+It's also possible to pass parameters to `task-run`, as per the 
+[Task Configuration](https://github.com/melezhik/Sparrow6/blob/master/documentation/development.md#task-configuration)
+documentation; these override the configuration for the task.  
+
+In order to avoid committing the Tomtit cache to your Source Control 
+Management, you may wish to add it to your .gitignore:
 
     git add .tom/
     echo .tom/.cache >> .gitignore
-
 
 # Using pre built Sparrow6 DSL functions
 
@@ -264,6 +271,10 @@ Use `--cat` command to print out scenario source code:
 Use `--lines` flag to print out with line numbers.
 
 # Environments
+
+The purpose of environments is that you can separately configure production, 
+development, testing, and any other environemnts you choose.  This gives you
+the ability to easily vary configuration on a per-environment basis.  
 
 * Tomtit environments are configuration files, written on Raku and technically speaking are plain Raku Hashes
 
