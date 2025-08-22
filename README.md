@@ -403,7 +403,8 @@ You can set Tomtit configuration in `~/tom.yaml` file:
     --color            # color output
     --no_index_update  # don't update Sparrow repository index
     --dump_task        # dump task code before execution, see SP6_DUMP_TASK_CODE Sparrow documentation
-
+    --tags             # sets Sparrow tags, see https://github.com/melezhik/Sparrow6/blob/master/documentation/envvars.md
+     
 Example of `~/tom.yaml` file:
 
 ```yaml

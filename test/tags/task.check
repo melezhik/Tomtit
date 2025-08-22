@@ -1,0 +1,5 @@
+begin:
+===
+{:drink("coffee"), :food("sandwich"), :milk(Bool::True)}
+===
+end:

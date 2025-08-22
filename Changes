@@ -2,6 +2,9 @@ Revision history for Tomtit
 
 {{$NEXT}}
 
+    - tom cli - support 
+      Sparrow tags
+
 0.0.36 2025-08-04T14:20:00Z
 
     - Support common environments
